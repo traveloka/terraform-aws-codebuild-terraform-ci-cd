@@ -1,3 +1,13 @@
+output "artifact_s3_bucket_name" {
+  value       = "${aws_s3_bucket.artifact.id}"
+  description = "The name of Artifact S3 Bucket"
+}
+
+output "artifact_s3_bucket_arn" {
+  value       = "${aws_s3_bucket.artifact.arn}"
+  description = "The ARN of Artifact S3 Bucket"
+}
+
 ######
 # CI #
 ######
@@ -7,7 +17,7 @@ output "ci_project_name" {
 }
 
 output "ci_project_arn" {
-  value       = "${aws_codebuild_project.ci.id}"
+  value       = "${aws_codebuild_project.ci.arn}"
   description = "The ARN of CI codebuild project"
 }
 
@@ -30,7 +40,7 @@ output "cd_project_name" {
 }
 
 output "cd_project_arn" {
-  value       = "${aws_codebuild_project.cd.id}"
+  value       = "${aws_codebuild_project.cd.arn}"
   description = "The ARN of CD codebuild project"
 }
 
