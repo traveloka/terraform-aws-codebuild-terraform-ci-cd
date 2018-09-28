@@ -26,7 +26,7 @@ variable "compute_type" {
 
 variable "image" {
   type        = "string"
-  default     = "traveloka/codebuild-terraform-ci-cd-image:v0.1.0"
+  default     = "traveloka/codebuild-terraform-ci-cd-image:v0.1.1"
   description = "Docker image used by CodeBuild"
 }
 
