@@ -26,8 +26,20 @@ variable "compute_type" {
 
 variable "image" {
   type        = "string"
-  default     = "traveloka/codebuild-terraform-ci-cd-image:v0.1.2"
+  default     = "traveloka/codebuild-terraform-ci-cd-image:v0.1.4"
   description = "Docker image used by CodeBuild"
+}
+
+variable "github_app_id" {
+  type        = "string"
+  default     = "18429"
+  description = "Terraform CI/CD Github App ID"
+}
+
+variable "github_app_installation_id" {
+  type        = "string"
+  default     = "361093"
+  description = "Terraform CI/CD Github App Installation ID"
 }
 
 ######

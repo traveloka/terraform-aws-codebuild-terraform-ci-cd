@@ -8,6 +8,8 @@ locals {
     //Set Environment Variables from Terraform module variables
     "export ARTIFACT_BUCKET=${module.aws_s3_bucket_artifact_name.name}",
 
+    "export GITHUB_APP_ID=${var.github_app_id}",
+    "export GITHUB_APP_INSTALLATION_ID=${var.github_app_installation_id}",
     "export TERRAFORM_VERSION=${var.terraform_version}",
 
     //Install Terraform
@@ -46,6 +48,8 @@ locals {
     //Set Environment Variables from Terraform module variables
     "export ARTIFACT_BUCKET=${module.aws_s3_bucket_artifact_name.name}",
 
+    "export GITHUB_APP_ID=${var.github_app_id}",
+    "export GITHUB_APP_INSTALLATION_ID=${var.github_app_installation_id}",
     "export TERRAFORM_VERSION=${var.terraform_version}",
 
     //Install Terraform
