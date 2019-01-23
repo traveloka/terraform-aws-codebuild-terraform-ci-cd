@@ -93,10 +93,17 @@ phases:
 EOF
 
   vars {
-    install_commands    = "${join("\n      - ", local.ci_install_commands)}"
-    pre_build_commands  = "${join("\n      - ", local.ci_pre_build_commands)}"
-    build_commands      = "${join("\n      - ", local.ci_build_commands)}"
-    post_build_commands = "${join("\n      - ", local.ci_post_build_commands)}"
+    install_commands = "${length(var.ci_install_commands) > 0 ?
+    join("\n      - ", var.ci_install_commands) : join("\n      - ", local.ci_install_commands)}"
+
+    pre_build_commands = "${length(var.ci_pre_build_commands) > 0 ?
+    join("\n      - ", var.ci_pre_build_commands) : join("\n      - ", local.ci_pre_build_commands)}"
+
+    build_commands = "${length(var.ci_build_commands) > 0 ?
+    join("\n      - ", var.ci_build_commands) : join("\n      - ", local.ci_build_commands)}"
+
+    post_build_commands = "${length(var.ci_post_build_commands) > 0 ?
+    join("\n      - ", var.ci_post_build_commands) : join("\n      - ", local.ci_post_build_commands)}"
   }
 }
 
@@ -122,9 +129,16 @@ phases:
 EOF
 
   vars {
-    install_commands    = "${join("\n      - ", local.cd_install_commands)}"
-    pre_build_commands  = "${join("\n      - ", local.cd_pre_build_commands)}"
-    build_commands      = "${join("\n      - ", local.cd_build_commands)}"
-    post_build_commands = "${join("\n      - ", local.cd_post_build_commands)}"
+    install_commands = "${length(var.cd_install_commands) > 0 ?
+    join("\n      - ", var.cd_install_commands) : join("\n      - ", local.cd_install_commands)}"
+
+    pre_build_commands = "${length(var.cd_pre_build_commands) > 0 ?
+    join("\n      - ", var.cd_pre_build_commands) : join("\n      - ", local.cd_pre_build_commands)}"
+
+    build_commands = "${length(var.cd_build_commands) > 0 ?
+    join("\n      - ", var.cd_build_commands) : join("\n      - ", local.cd_build_commands)}"
+
+    post_build_commands = "${length(var.cd_post_build_commands) > 0 ?
+    join("\n      - ", var.cd_post_build_commands) : join("\n      - ", local.cd_post_build_commands)}"
   }
 }
