@@ -130,6 +130,8 @@ resource "aws_codebuild_project" "ci" {
     compute_type = "${var.compute_type}"
     image        = "${var.image}"
     type         = "LINUX_CONTAINER"
+    
+    environment_variable = "${var.ci_env_var}"
   }
 
   source {
@@ -188,6 +190,8 @@ resource "aws_codebuild_project" "cd" {
     compute_type = "${var.compute_type}"
     image        = "${var.image}"
     type         = "LINUX_CONTAINER"
+    
+    environment_variable = "${var.cd_env_var}"
   }
 
   source {
