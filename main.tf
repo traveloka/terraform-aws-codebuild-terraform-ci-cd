@@ -83,7 +83,7 @@ locals {
 }
 
 module "aws_s3_bucket_artifact_name" {
-  source        = "github.com/isen-ng/terraform-aws-resource-naming.git?ref=v0.16.1"
+  source        = "github.com/traveloka/terraform-aws-resource-naming.git?ref=v0.16.1"
   name_prefix   = "${var.product_domain}-terraform-ci-cd-${data.aws_caller_identity.current.account_id}-"
   resource_type = "s3_bucket"
 }
@@ -149,7 +149,7 @@ resource "aws_codebuild_project" "ci" {
 }
 
 module "ci_codebuild_role" {
-  source                     = "github.com/isen-ng/terraform-aws-iam-role.git//modules/service?ref=v1.0.2"
+  source                     = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v1.0.2"
 
   environment = "${var.environment}"
   product_domain = "${var.product_domain}"
@@ -213,7 +213,7 @@ resource "aws_codebuild_project" "cd" {
 }
 
 module "cd_codebuild_role" {
-  source                     = "github.com/isen-ng/terraform-aws-iam-role.git//modules/service?ref=v1.0.2"
+  source                     = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v1.0.2"
 
   environment = "${var.environment}"
   product_domain = "${var.product_domain}"
