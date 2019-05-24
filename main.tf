@@ -130,7 +130,7 @@ resource "aws_codebuild_project" "ci" {
     compute_type = "${var.compute_type}"
     image        = "${var.image}"
     type         = "LINUX_CONTAINER"
-    
+
     environment_variable = "${var.ci_env_var}"
   }
 
@@ -149,9 +149,9 @@ resource "aws_codebuild_project" "ci" {
 }
 
 module "ci_codebuild_role" {
-  source                     = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v1.0.2"
+  source = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v1.0.2"
 
-  environment = "${var.environment}"
+  environment    = "${var.environment}"
   product_domain = "${var.product_domain}"
 
   role_identifier            = "${local.name}"
@@ -194,7 +194,7 @@ resource "aws_codebuild_project" "cd" {
     compute_type = "${var.compute_type}"
     image        = "${var.image}"
     type         = "LINUX_CONTAINER"
-    
+
     environment_variable = "${var.cd_env_var}"
   }
 
@@ -213,9 +213,9 @@ resource "aws_codebuild_project" "cd" {
 }
 
 module "cd_codebuild_role" {
-  source                     = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v1.0.2"
+  source = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v1.0.2"
 
-  environment = "${var.environment}"
+  environment    = "${var.environment}"
   product_domain = "${var.product_domain}"
 
   role_identifier            = "${local.name}"
