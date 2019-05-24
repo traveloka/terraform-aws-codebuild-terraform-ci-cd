@@ -149,7 +149,7 @@ resource "aws_codebuild_project" "ci" {
 }
 
 module "ci_codebuild_role" {
-  source                     = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v0.4.3"
+  source                     = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v1.0.0"
   role_identifier            = "${local.name}"
   role_description           = "Service Role for ${local.name}"
   role_force_detach_policies = true
@@ -209,7 +209,7 @@ resource "aws_codebuild_project" "cd" {
 }
 
 module "cd_codebuild_role" {
-  source                     = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v0.4.3"
+  source                     = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v1.0.0"
   role_identifier            = "${local.name}"
   role_description           = "Service Role for ${local.name}"
   role_force_detach_policies = true
