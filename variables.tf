@@ -45,6 +45,14 @@ variable "github_app_installation_id" {
 ######
 # CI #
 ######
+variable "ci_env_var" {
+  type = "list"
+
+  default = []
+
+  description = "Environment variables for CI"
+}
+
 variable "ci_install_commands" {
   type = "list"
 
@@ -80,6 +88,13 @@ variable "ci_post_build_commands" {
 ######
 # CD #
 ######
+variable "cd_env_var" {
+  type = "list"
+
+  default = []
+
+  description = "Environment variables for CD"
+}
 
 variable "cd_install_commands" {
   type = "list"
