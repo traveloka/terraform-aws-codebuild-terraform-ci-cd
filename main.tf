@@ -83,7 +83,7 @@ locals {
 }
 
 module "aws_s3_bucket_artifact_name" {
-  source        = "github.com/traveloka/terraform-aws-resource-naming.git"
+  source        = "github.com/traveloka/terraform-aws-resource-naming.git?ref=v0.16.1"
   name_prefix   = "${var.product_domain}-terraform-ci-cd-${data.aws_caller_identity.current.account_id}-"
   resource_type = "s3_bucket"
 }
@@ -130,7 +130,7 @@ resource "aws_codebuild_project" "ci" {
     compute_type = "${var.compute_type}"
     image        = "${var.image}"
     type         = "LINUX_CONTAINER"
-    
+
     environment_variable = "${var.ci_env_var}"
   }
 
@@ -149,7 +149,11 @@ resource "aws_codebuild_project" "ci" {
 }
 
 module "ci_codebuild_role" {
-  source                     = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v0.4.3"
+  source = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v1.0.1"
+
+  environment    = "${var.environment}"
+  product_domain = "${var.product_domain}"
+
   role_identifier            = "${local.name}"
   role_description           = "Service Role for ${local.name}"
   role_force_detach_policies = true
@@ -190,7 +194,7 @@ resource "aws_codebuild_project" "cd" {
     compute_type = "${var.compute_type}"
     image        = "${var.image}"
     type         = "LINUX_CONTAINER"
-    
+
     environment_variable = "${var.cd_env_var}"
   }
 
@@ -209,7 +213,11 @@ resource "aws_codebuild_project" "cd" {
 }
 
 module "cd_codebuild_role" {
-  source                     = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v0.4.3"
+  source = "github.com/traveloka/terraform-aws-iam-role.git//modules/service?ref=v1.0.1"
+
+  environment    = "${var.environment}"
+  product_domain = "${var.product_domain}"
+
   role_identifier            = "${local.name}"
   role_description           = "Service Role for ${local.name}"
   role_force_detach_policies = true
