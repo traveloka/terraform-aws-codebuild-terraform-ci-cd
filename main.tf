@@ -166,10 +166,16 @@ resource "aws_codebuild_webhook" "ci" {
   project_name = "${aws_codebuild_project.ci.name}"
 
   filter_group = {
+    # only build PRs
     filter = {
-      type                    = "EVENT"
-      pattern                 = "PULL_REQUEST_CREATED,PULL_REQUEST_UPDATED,PULL_REQUEST_REOPENED"
-      exclude_matched_pattern = false
+      type    = "EVENT"
+      pattern = "PULL_REQUEST_CREATED,PULL_REQUEST_UPDATED,PULL_REQUEST_REOPENED"
+    }
+
+    # only build PRs to master
+    filter = {
+      type    = "BASE_REF"
+      pattern = "refs/heads/master"
     }
   }
 }
@@ -238,10 +244,16 @@ resource "aws_codebuild_webhook" "cd" {
   project_name = "${aws_codebuild_project.cd.name}"
 
   filter_group = {
+    # only build push events
     filter = {
-      type                    = "EVENT"
-      pattern                 = "PUSH"
-      exclude_matched_pattern = false
+      type    = "EVENT"
+      pattern = "PUSH"
+    }
+
+    # only build pushes to master
+    filter = {
+      type    = "BASE_REF"
+      pattern = "refs/heads/master"
     }
   }
 }
