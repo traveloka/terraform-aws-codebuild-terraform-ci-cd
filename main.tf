@@ -165,10 +165,10 @@ module "ci_codebuild_role" {
 resource "aws_codebuild_webhook" "ci" {
   project_name = "${aws_codebuild_project.ci.name}"
 
-    filter_group = {
+  filter_group = {
     filter = {
-      type = "EVENT"
-      pattern = "PULL_REQUEST_CREATED,PULL_REQUEST_UPDATED,PULL_REQUEST_REOPENED"
+      type                    = "EVENT"
+      pattern                 = "PULL_REQUEST_CREATED,PULL_REQUEST_UPDATED,PULL_REQUEST_REOPENED"
       exclude_matched_pattern = false
     }
   }
@@ -239,8 +239,8 @@ resource "aws_codebuild_webhook" "cd" {
 
   filter_group = {
     filter = {
-      type = "EVENT"
-      pattern = "PUSH"
+      type                    = "EVENT"
+      pattern                 = "PUSH"
       exclude_matched_pattern = false
     }
   }
