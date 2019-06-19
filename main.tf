@@ -252,7 +252,7 @@ resource "aws_codebuild_webhook" "cd" {
 
     # only build pushes to master
     filter = {
-      type    = "BASE_REF"
+      type    = "HEAD_REF"
       pattern = "refs/heads/master"
     }
   }
