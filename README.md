@@ -8,6 +8,7 @@ To understand better on how to use this module, you can go into examples folder 
 Examples
 --------
 [Simple Example](https://github.com/traveloka/terraform-aws-codebuild-terraform-ci-cd/tree/master/examples/simple)
+
 [Complete Example](https://github.com/traveloka/terraform-aws-codebuild-terraform-ci-cd/tree/master/examples/complete)
 
 Terraform Version
