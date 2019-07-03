@@ -20,6 +20,7 @@ This also requires the "aws" terraform provider to be 2.14.0 or newer
 
 Authors
 -------
+* [Isen Ng](https://github.com/isen-ng)
 * [Karsten Ari Agathon](https://github.com/karstenaa)
 
 License
