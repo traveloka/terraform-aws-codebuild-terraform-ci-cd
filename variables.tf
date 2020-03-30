@@ -38,7 +38,7 @@ variable "github_app_id" {
 
 variable "github_app_installation_id" {
   type        = "string"
-  default     = "361093"
+  default     = "7646288"
   description = "Terraform CI/CD Github App Installation ID"
 }
 
