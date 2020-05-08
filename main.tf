@@ -110,6 +110,7 @@ resource "aws_s3_bucket" "artifact" {
     ProductDomain = "${var.product_domain}"
     Description   = "Artifact bucket for ${local.name} CodeBuild projects"
     Environment   = "${var.environment}"
+    Team          = "${var.team_name}"
   }
 }
 
@@ -145,6 +146,7 @@ resource "aws_codebuild_project" "ci" {
   tags {
     "ProductDomain" = "${var.product_domain}"
     "Environment"   = "${var.environment}"
+    "Team"          = "${var.team_name}"
   }
 }
 
@@ -223,6 +225,7 @@ resource "aws_codebuild_project" "cd" {
   tags {
     "ProductDomain" = "${var.product_domain}"
     "Environment"   = "${var.environment}"
+    "Team"          = "${var.team_name}"
   }
 }
 

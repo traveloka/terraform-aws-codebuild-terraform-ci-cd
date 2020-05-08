@@ -8,6 +8,11 @@ variable "product_domain" {
   description = "The name of the product domain"
 }
 
+variable "team_name" {
+  type        = "string"
+  description = "Name of the team using the resource, used for cost allocation purpose"
+}
+
 variable "environment" {
   type        = "string"
   description = "The environment which applied"
