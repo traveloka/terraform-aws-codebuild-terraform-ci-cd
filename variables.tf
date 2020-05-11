@@ -8,14 +8,15 @@ variable "product_domain" {
   description = "The name of the product domain"
 }
 
-variable "team_name" {
-  type        = "string"
-  description = "Name of the team using the resource, used for cost allocation purpose"
-}
-
 variable "environment" {
   type        = "string"
   description = "The environment which applied"
+}
+
+variable "additional_tags" {
+  type        = "map"
+  description = "Additional tags that will be added to the resources"
+  default     = {}
 }
 
 variable "source_repository_url" {

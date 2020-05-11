@@ -105,13 +105,14 @@ resource "aws_s3_bucket" "artifact" {
     }
   }
 
-  tags {
-    Name          = "${local.name}"
-    ProductDomain = "${var.product_domain}"
-    Description   = "Artifact bucket for ${local.name} CodeBuild projects"
-    Environment   = "${var.environment}"
-    Team          = "${var.team_name}"
-  }
+  tags = "${merge(
+    var.additional_tags,
+    map("Name", local.name),
+    map("ProductDomain", var.product_domain),
+    map("Description", format("Artifact bucket for %s CodeBuild projects", local.name)),
+    map("Environment", var.environment),
+    map("ManagedBy", "terraform")
+  )}"
 }
 
 ######
@@ -143,11 +144,12 @@ resource "aws_codebuild_project" "ci" {
     report_build_status = true
   }
 
-  tags {
-    "ProductDomain" = "${var.product_domain}"
-    "Environment"   = "${var.environment}"
-    "Team"          = "${var.team_name}"
-  }
+  tags = "${merge(
+    var.additional_tags,
+    map("ProductDomain", var.product_domain),
+    map("Environment", var.environment),
+    map("ManagedBy", "terraform")
+  )}"
 }
 
 module "ci_codebuild_role" {
@@ -222,11 +224,12 @@ resource "aws_codebuild_project" "cd" {
     report_build_status = true
   }
 
-  tags {
-    "ProductDomain" = "${var.product_domain}"
-    "Environment"   = "${var.environment}"
-    "Team"          = "${var.team_name}"
-  }
+  tags = "${merge(
+    var.additional_tags,
+    map("ProductDomain", var.product_domain),
+    map("Environment", var.environment),
+    map("ManagedBy", "terraform")
+  )}"
 }
 
 module "cd_codebuild_role" {
