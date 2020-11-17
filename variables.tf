@@ -32,13 +32,13 @@ variable "compute_type" {
 
 variable "image" {
   type        = "string"
-  default     = "traveloka/codebuild-terraform-ci-cd-image:v0.1.11"
+  default     = "015110552125.dkr.ecr.ap-southeast-1.amazonaws.com/bei-codebuild-terraform-ci-cd-app:0.1.11"
   description = "Docker image used by CodeBuild"
 }
 
 variable "image_credentials" {
   type        = "string"
-  default     = "CODEBUILD"
+  default     = "SERVICE_ROLE"
   description = "Credentials to be used to pull codebuild environment image"
 }
 
