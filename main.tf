@@ -132,7 +132,7 @@ resource "aws_codebuild_project" "ci" {
     compute_type = "${var.compute_type}"
     image        = "${var.image}"
     type         = "LINUX_CONTAINER"
-    image_pull_credentials_type = "${var.bake_codebuild_image_credentials}"
+    image_pull_credentials_type = "${var.image_credentials}"
 
     environment_variable = "${var.ci_env_var}"
   }
