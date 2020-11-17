@@ -132,6 +132,7 @@ resource "aws_codebuild_project" "ci" {
     compute_type = "${var.compute_type}"
     image        = "${var.image}"
     type         = "LINUX_CONTAINER"
+    image_pull_credentials_type = "${var.bake_codebuild_image_credentials}"
 
     environment_variable = "${var.ci_env_var}"
   }
@@ -193,6 +194,11 @@ resource "aws_iam_role_policy" "ci_main" {
 resource "aws_iam_role_policy_attachment" "ci_administrator_access" {
   role       = "${module.ci_codebuild_role.role_name}"
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+}
+
+resource "aws_iam_role_policy_attachment" "ci_ecr" {
+  role       = "${module.ci_codebuild_role.role_name}"
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }
 
 ######

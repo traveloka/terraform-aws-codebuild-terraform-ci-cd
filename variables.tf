@@ -36,6 +36,12 @@ variable "image" {
   description = "Docker image used by CodeBuild"
 }
 
+variable "bake_codebuild_image_credentials" {
+  type        = "string"
+  default     = "CODEBUILD"
+  description = "Credentials to be used to pull codebuild environment image"
+}
+
 variable "github_app_id" {
   type        = "string"
   default     = "18429"
