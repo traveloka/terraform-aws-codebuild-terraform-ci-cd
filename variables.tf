@@ -57,6 +57,12 @@ variable "github_app_installation_id" {
 ######
 # CI #
 ######
+variable "ci_shell" {
+  type        = "string"
+  default     = "bash"
+  description = "The shell command interpreter for CI"
+}
+
 variable "ci_env_var" {
   type = "list"
 
@@ -100,6 +106,12 @@ variable "ci_post_build_commands" {
 ######
 # CD #
 ######
+variable "cd_shell" {
+  type        = "string"
+  default     = "bash"
+  description = "The shell command interpreter for CD"
+}
+
 variable "cd_env_var" {
   type = "list"
 

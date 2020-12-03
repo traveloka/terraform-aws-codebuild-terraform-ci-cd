@@ -77,6 +77,8 @@ data "aws_iam_policy_document" "this" {
 data "template_file" "ci_buildspec" {
   template = <<EOF
 version: 0.2
+env:
+  shell: ${var.ci_shell}
 phases:
   install:
     commands:
@@ -109,6 +111,8 @@ EOF
 data "template_file" "cd_buildspec" {
   template = <<EOF
 version: 0.2
+env:
+  shell: ${var.cd_shell}
 phases:
   install:
     commands:
