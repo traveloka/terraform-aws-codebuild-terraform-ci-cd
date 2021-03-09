@@ -31,6 +31,11 @@ output "ci_role_name" {
   description = "CI project's IAM role name"
 }
 
+output "ci_role_unique_id" {
+  value       = "${module.ci_codebuild_role.role_unique_id}"
+  description = "CI project's IAM role unique id"
+}
+
 ######
 # CD #
 ######
@@ -52,4 +57,9 @@ output "cd_buildspec" {
 output "cd_role_name" {
   value       = "${module.cd_codebuild_role.role_name}"
   description = "CD project's IAM role name"
+}
+
+output "cd_role_unique_id" {
+  value       = "${module.cd_codebuild_role.role_unique_id}"
+  description = "CD project's IAM role unique id"
 }
