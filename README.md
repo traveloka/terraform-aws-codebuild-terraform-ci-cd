@@ -13,11 +13,8 @@ Examples
 
 Terraform Version
 -----------------
-This module was created using Terraform 0.11.8.
-So to be more safe, Terraform version 0.11.8 or newer is required to use this module.
 
-This also requires the "aws" terraform provider to be 2.14.0 or newer
-
+This module require terraform 0.12.
 Authors
 -------
 * [Isen Ng](https://github.com/isen-ng)

@@ -101,7 +101,7 @@ locals {
 
 module "aws_s3_bucket_artifact_name" {
   source        = "github.com/traveloka/terraform-aws-resource-naming.git?ref=v0.19.1"
-  name_prefix   = "${var.product_domain}-terraform-ci-cd-${data.aws_caller_identity.current.account_id}-"
+  name_prefix   = "${var.product_domain}-terraform-ci-cd-${data.aws_caller_identity.current.account_id}"
   resource_type = "s3_bucket"
 }
 
